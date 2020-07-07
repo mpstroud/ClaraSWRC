@@ -6,12 +6,17 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-setwd(project.root)
+getwd() #should be project directory and root repository  
 
+biofilm = read.csv("biofilmIsotopes.csv")
+water = read.csv("waterIsotopes.csv")
 
-
-
-
+#refresh installation of some of the most common packages likely to be used
+pack_list<-list ("dplyr","lubridate","tidyr")
+for(i in 1:length(pack_list)){
+  p <- pack_list[[i]]
+  install.packages(p,repos = "https://cran.rstudio.com",dependencies = TRUE)
+}
 
 ```
 

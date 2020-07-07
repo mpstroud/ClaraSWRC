@@ -1,0 +1,27 @@
+---
+title: "Whole-Flume Uptake"
+author: "MPG"
+date: "7/6/2020"
+output: html_document
+---
+DataInput must be run first in each new session 
+```{r setup, include=FALSE}
+library(ggplot2); library(dplyr)
+
+d=unique(water$Parameter); summ_tables=list()
+
+for (i in 1:length(d)) {
+   summ_tables[[i]] =  water %>%
+    filter(.,Parameter == print(d[i])) %>%
+    group_by(Treatment,SampleTime) %>%
+        summarise_at(vars(Value), tibble::lst(mean,min,max))
+}
+d; summ_tables[[4]]
+#similar levels of istopic enrichment and not much change in 15N signal at plateau
+#large differnces in concentrattions and total 15N Mass
+
+
+
+
+```
+
