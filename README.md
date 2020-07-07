@@ -1,6 +1,6 @@
-<h1>ClaraSWRC</h1>
+## ClaraSWRC metadata
 Each data file is saved as .csv, filename should indicate content
-<p>Each file has the same columns</p>
+Each file has the same columns
 <ol>
       <li> SampleID: as set by Clara/Steph </li>
       <li> FlumeID: Flume1 or Flume2 </li>
@@ -14,7 +14,6 @@ Each data file is saved as .csv, filename should indicate content
       <li> Value </li>
 </ol>
 
-
-<h1>Whole Flume Uptake</h1>
-<p>Prior to any calcualtion I plotted each parameter over time and it really looks quite messy, no clear patterns of 15N decay or 15Nmass removal across flumes. I do see NO3  concentrations being usually lowest after ~120minutes, then go back up, this turnover rate is consistent with previous 15N work for algae, including my own work. So I gues it could be that 10h was too long and began having noise from 15N remineralization.</p>
-If we have more water samples for the **first 3h** of additon I would definetly send them out 
+## Whole Flume Uptake
+Prior to any calcualtion I plotted each parameter over time and it really looks quite messy, no clear patterns of 15N decay or 15Nmass removal across flumes. I do see NO3  concentrations being usually lowest after ~120minutes, then go back up, this turnover rate is consistent with previous 15N work for algae, including my own work. So I gues it could be that 10h was too long and began having noise from 15N remineralization.
+**If we have more water samples for the first 3h of additon I would definetly send them out**
