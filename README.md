@@ -1,8 +1,9 @@
-# ClaraSWRC
+<h1>ClaraSWRC</h1>
 Each data file is saved as .csv, filename should indicate content
-Each file has the same columns
+<p>Each file has the same columns</p>
+<ol>
       1-column- SampleID: as set by CLara/Steph
-	2-column- FlumeID: Flume1 or Flume2
+      2-column- FlumeID: Flume1 or Flume2
       3-column- Treatment: R0HF, R0LF, R2, R4, R6, R10
       4-column- Date: 10/24/2019, 11/7/2019, 11/1/2019	
       5-column- SampleType: water or biofilm
@@ -11,3 +12,4 @@ Each file has the same columns
       8-column- Parameter: abbreviated	
       9-column- Units: use "/"	
       10-column-  Value
+</ol>
