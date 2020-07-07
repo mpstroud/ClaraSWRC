@@ -17,4 +17,4 @@ Each data file is saved as .csv, filename should indicate content
 
 <h1>Whole Flume Uptake</h1>
 <p>Prior to any calcualtion I plotted each parameter over time and it really looks quite messy, no clear patterns of 15N decay or 15Nmass removal across flumes. I do see NO3  concentrations being usually lowest after ~120minutes, then go back up, this turnover rate is consistent with previous 15N work for algae, including my own work. So I gues it could be that 10h was too long and began having noise from 15N remineralization.</p>
-*If we have more samples for the first 3h of additon I would definetly send them out.*
+*If we have more samples for the first 3h of additon I would definetly send them out*
