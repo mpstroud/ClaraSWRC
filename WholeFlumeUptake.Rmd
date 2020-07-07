@@ -16,11 +16,20 @@ for (i in 1:length(d)) {
     group_by(Treatment,SampleTime) %>%
         summarise_at(vars(Value), tibble::lst(mean,min,max))
 }
-d; summ_tables[[4]]
+d; summ_tables[[2]]
 #similar levels of istopic enrichment and not much change in 15N signal at plateau
-#large differnces in concentrattions and total 15N Mass
+#large differnces in concentrattions and total 15N Mass, differences in concentrations suggest biological-acitvity even when water leaked out of the flumes over the addition time
 
+flume<-"R10" 
+par(mfrow=c(3,1))
+attach(filter(water,Treatment == paste(flume) & SampleTime == "plateau" & Parameter =="delta15N"))
+plot(Value, main="delta15N",type="b")
+attach(filter(water,Treatment == paste(flume) & SampleTime == "plateau" & Parameter =="NitConc"))
+plot(Value, main="NitConc",type="b")
+attach(filter(water,Treatment == paste(flume) & SampleTime == "plateau" & Parameter =="Mass15N"))
+plot(Value, main="Mass15N",type="b")
 
+#rather messy, I don;t see any value on measuring uptake using water data if no clear decay is observed. Perhaps we had too much release, seems consistent that concentrations are usually lowest after ~120minutes, then go back up, this turnover rate falls within previous work. 
 
 
 ```

@@ -1,0 +1,39 @@
+---
+title: "PatchSpecificUptake"
+author: "MPG"
+date: "7/7/2020"
+output: html_document
+---
+
+DataInput must be run first in each new session 
+```{r setup, include=FALSE}
+library(ggplot2); library(dplyr); library (tidyr)
+
+#calculate biofilm N biomass using dry mass values and the area of the sampler---which Clara should specifiy-- assuming 3.14 cm2 for now. Alos, I've no idea if half a filter was encapsulated or the whole thing, judging for sample weight I guess the whole filter was encapsulated and I'm assuming so in the calcs, we can change it later.
+
+#first tranpose df and calculate Nbiomass per each sample in mgN/m2
+biofilm_mod = biofilm %>%
+    spread(Parameter, Value) %>%
+    select(SampleID, Treatment, SampleTime, VelMag, delta15N, DryMass, SampleWeight, TotalN) %>%
+        group_by(., SampleID, Treatment, SampleTime) %>% 
+        summarise_all(na.omit) %>%
+            mutate(., DryNmass = ((((TotalN/1000)/(SampleWeight-36))*DryMass)*1000)/0.000314)
+
+#calculate uptake rates using average 15N-NO3 and assumptions described above and 9h of addition (is this correct?)
+mean15Nwater = water %>%
+  filter(.,SampleTime == "plateau" & Parameter =="delta15N") %>%
+  group_by(Treatment) %>%
+  summarize(water15N = mean(Value))
+
+merged_df = left_join(biofilm_mod,mean15Nwater, by = "Treatment")#merge water and biofilm df
+
+merged_df_final = merged_df %>%
+  filter(SampleTime == "plateau") %>%
+  mutate(., Uptake =((delta15N/1000)*0.003663*DryNmass)/((water15N/1000)*0.003663*0.375)) #rates are in mgN/m2/day
+
+par(mfrow=c(1,1))
+boxplot(merged_df_final$Uptake,ylim=c(0,200)) #numbers look good.
+
+
+```
+

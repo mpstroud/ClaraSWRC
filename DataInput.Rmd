@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-getwd() #should be project directory and root repository  
+getwd() #should be project directory and root repository by default  
 
 biofilm = read.csv("biofilmIsotopes.csv")
 water = read.csv("waterIsotopes.csv")
